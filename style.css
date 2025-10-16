@@ -1,0 +1,82 @@
+/* layout */
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin:16px;
+  background:#fafafa;
+  color:#111;
+}
+
+h1{margin:0 0 12px;font-size:20px}
+
+/* Grid med affischer */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+}
+
+a.card{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:inherit;
+}
+
+a.card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:6px;
+  filter:grayscale(100%);
+  transition:transform .18s ease, filter .18s ease;
+}
+
+a.card:hover img{
+  filter:none;
+  transform:scale(1.03);
+}
+
+/* Detaljvy */
+.detail{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.6);
+  padding:20px;
+  z-index:99;
+}
+
+.detail:target{display:flex}
+
+.box{
+  background:#fff;
+  padding:14px;
+  border-radius:8px;
+  max-width:720px;
+  width:100%;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:12px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+.box img{height:260px;border-radius:6px;object-fit:cover}
+
+/* Stäng-länk */
+.close{
+  justify-self:end;
+  background:#333;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:6px;
+  text-decoration:none;
+}
+
+
+@media screen and (max-width:600px){
+  .box{grid-template-columns:1fr;}
+  .box img{height:180px;}
+  a.card img{height:180px;}
+}
